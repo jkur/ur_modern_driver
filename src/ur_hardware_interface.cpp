@@ -238,12 +238,12 @@ void UrHardwareInterface::doSwitch(
 	for (std::list<hardware_interface::ControllerInfo>::const_iterator controller_it =
 			stop_list.begin(); controller_it != stop_list.end();
 			++controller_it) {
-		if (controller_it->hardware_interface
+		if (controller_it->type
 				== "hardware_interface::VelocityJointInterface") {
 			velocity_interface_running_ = false;
 			ROS_DEBUG("Stopping velocity interface");
 		}
-		if (controller_it->hardware_interface
+		if (controller_it->type
 				== "hardware_interface::PositionJointInterface") {
 			position_interface_running_ = false;
 			std::vector<double> tmp;
@@ -254,12 +254,12 @@ void UrHardwareInterface::doSwitch(
 	for (std::list<hardware_interface::ControllerInfo>::const_iterator controller_it =
 			start_list.begin(); controller_it != start_list.end();
 			++controller_it) {
-		if (controller_it->hardware_interface
+		if (controller_it->type
 				== "hardware_interface::VelocityJointInterface") {
 			velocity_interface_running_ = true;
 			ROS_DEBUG("Starting velocity interface");
 		}
-		if (controller_it->hardware_interface
+		if (controller_it->type
 				== "hardware_interface::PositionJointInterface") {
 			position_interface_running_ = true;
 			robot_->uploadProg();
