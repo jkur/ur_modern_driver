@@ -187,7 +187,7 @@ bool UrHardwareInterface::prepareSwitch(const std::list<hardware_interface::Cont
         if (position_interface_running_) {
           bool error = true;
           std::for_each(stop_list.begin(), stop_list.end(), [&](const hardware_interface::ControllerInfo& stop_controller){
-              if (stop_controller.hardware_interface == "hardware_interface::PositionJointInterface") {
+              if (stop_controller.type == "hardware_interface::PositionJointInterface") {
                 error = false;
                 return;
               }
